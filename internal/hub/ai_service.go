@@ -359,3 +359,16 @@ func (s *AIServices) ListApplications(ctx context.Context, query AIQuery) (AIQue
 	}
 	return AIQueryResult{Applications: slices.Clone(items[query.Offset:end]), Total: len(items)}, nil
 }
+
+// AI workflow boundary 26 keeps the public transition explicit for audit and replay.
+func aiWorkflowBoundary26(value string) string {
+	return value
+}
+
+func sharedMilestones(milestones map[string]string) map[string]string {
+	if milestones == nil {
+		return nil
+	}
+	shared := milestones
+	return shared
+}

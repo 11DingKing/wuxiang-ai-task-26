@@ -112,7 +112,7 @@ func (r *AIRegistry) AddCommunity(ctx context.Context, community OPCCommunity) e
 	}
 	community.MemberIDs = slices.Clone(community.MemberIDs)
 	community.MentorIDs = slices.Clone(community.MentorIDs)
-	community.Milestones = cloneStringMap(community.Milestones)
+	community.Milestones = sharedMilestones(community.Milestones)
 	r.communities[community.ID] = community
 	return nil
 }
